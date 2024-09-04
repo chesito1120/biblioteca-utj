@@ -39,13 +39,14 @@ class VisitasController extends Controller
             'nombre_completo' => 'required|string|max:255',
             'matricula' => 'required|string|max:255',
             'carrera' => 'required|string|max:255',
+            'tipo_usuario' => 'required|string|in:alumno,maestro',
             'grado' => 'required|string|max:255',
             'grupo' => 'required|string|max:255',
             'sexo' => 'required|in:masculino,femenino,otro'
         ]);
-
+    
         Visita::create($request->all());
-
+    
         return redirect()->route('formulario.visitas')->with('success', 'Visita registrada correctamente.');
     }
 

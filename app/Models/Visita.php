@@ -5,12 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Visita extends Model
+class visita extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nombre_completo', 'matricula', 'carrera', 
-        'grado', 'grupo', 'sexo'
+        'nombre_completo', 
+        'matricula', 
+        'carrera',
+        'tipo_usuario',
+        'grado', 
+        'grupo', 
+        'sexo'
     ];
 }

@@ -42,6 +42,7 @@ return new class extends Migration
                 'TSU Entornos Virtuales y Negocios Digitales',
                 'TSU Desarrollo de Software Multiplataforma'
             ]);
+            $table->enum('tipo_usuario', ['maestro', 'alumno']);
             $table->enum('grado', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
             $table->string('grupo');
             $table->enum('sexo', ['masculino', 'femenino', 'otro']);

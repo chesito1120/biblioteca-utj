@@ -61,6 +61,16 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="tipo_usuario">usuario</label>
+                    <select class="form-control" id="tipo_usuario" name="tipo_usuario" required>
+                        <option value="">Seleccione su usuario</option>
+                        <option value="maestro">Maestro</option>
+                        <option value="alumno">Alumno</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="grado">Grado</label>
                     <input type="text" class="form-control" id="grado" name="grado" value="{{ old('grado') }}" required />
                 </div>
