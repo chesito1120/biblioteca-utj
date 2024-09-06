@@ -64,7 +64,7 @@ class VisitasController extends Controller
     // Crear el registro de la visita
     Visita::create($validatedData);
 
-    return redirect()->route('visitas.index')->with('success', 'Visita registrada correctamente.');
+    return redirect()->route('visitas.create')->with('success', 'Visita registrada correctamente.');
 }
 
     /**

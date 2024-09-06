@@ -84,7 +84,6 @@
                     <option value="">Seleccione el turno</option>
                     <option value="matutino">Matutino</option>
                     <option value="vespertino">Vespertino</option>
-        
                 </select>
             </div>
 
@@ -93,7 +92,6 @@
                 <input type="text" id="nombre_completo" name="nombre_completo" value="{{ old('nombre_completo') }}" required />
             </div>
 
-            
             <div class="form-group">
                 <label for="carrera">Carrera</label>
                 <select class="form-control" id="carrera" name="carrera" required>
@@ -140,13 +138,11 @@
             </div>
 
             <!-- Campos específicos de alumnos -->
-
-            <div class="form-group">
-                <label for="matricula">Matrícula</label>
-                <input type="text" id="matricula" name="matricula" value="{{ old('matricula') }}" />
-            </div>
-            
             <div id="alumnoFields" style="display: none;">
+                <div class="form-group">
+                    <label for="matricula">Matrícula</label>
+                    <input type="text" id="matricula" name="matricula" value="{{ old('matricula') }}" />
+                </div>
                 <div class="form-group">
                     <label for="sexo">Sexo</label>
                     <select id="sexo" name="sexo">
