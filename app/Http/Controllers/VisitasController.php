@@ -34,21 +34,38 @@ class VisitasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'nombre_completo' => 'required|string|max:255',
-            'matricula' => 'required|string|max:255',
-            'carrera' => 'required|string|max:255',
-            'tipo_usuario' => 'required|string|max:255',
-            'grado' => 'required|string|max:255',
-            'grupo' => 'required|string|max:255',
-            'sexo' => 'required|in:masculino,femenino,otro'
-        ]);
+{
+    // Validación para ambos tipos de usuarios
+    $rules = [
+        'nombre_completo' => 'required|string|max:255',
+        'tipo_usuario' => 'required|in:maestro,alumno',
+        'carrera' => 'required|string',
+        'grado' => 'required|string',
+        'grupo' => 'required|string',
+        'turno' => 'required|string',
+        'actividad' => 'required|string',
+    ];
 
-        Visita::create($request->all());
-
-        return redirect()->route('formulario.visitas')->with('success', 'Visita registrada correctamente.');
+    // Validación específica para alumnos
+    if ($request->tipo_usuario === 'alumno') {
+        $rules['sexo'] = 'required|in:masculino,femenino,otro';
+        $rules['matricula'] = 'nullable|string|max:255'; // O 'required', si está en el formulario
     }
+
+    // Validación específica para maestros
+    if ($request->tipo_usuario === 'maestro') {
+        $rules['cantidad_hombres'] = 'required|integer';
+        $rules['cantidad_mujeres'] = 'required|integer';
+    }
+
+    // Ejecutar la validación
+    $validatedData = $request->validate($rules);
+
+    // Crear el registro de la visita
+    Visita::create($validatedData);
+
+    return redirect()->route('visitas.index')->with('success', 'Visita registrada correctamente.');
+}
 
     /**
      * Display the specified resource.

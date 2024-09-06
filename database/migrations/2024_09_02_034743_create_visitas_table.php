@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('visitas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_completo');
-            $table->string('matricula');
+            $table->string('matricula')->nullable();
             $table->enum('carrera', [
                 'Licenciatura en Administración',
                 'TSU Gestión del Capital Humano',
@@ -45,7 +45,11 @@ return new class extends Migration
             $table->enum('tipo_usuario', ['alumno', 'maestro']);
             $table->enum('grado', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
             $table->string('grupo');
-            $table->enum('sexo', ['masculino', 'femenino', 'otro']);
+            $table->string('turno');
+            $table->string('actividad');
+            $table->integer('cantidad_hombres')->nullable(); 
+            $table->integer('cantidad_mujeres')->nullable(); 
+            $table->enum('sexo', ['masculino', 'femenino', 'otro'])->nullable(); 
             $table->timestamps();
         });
     }
