@@ -47,23 +47,30 @@ class VisitasController extends Controller
         'grado' => 'required|string',
         'grupo' => 'required|string',
         'turno' => 'required|string',
+        'servicio' => 'required|string',
         'actividad' => 'required|string',
     ];
 
-    // alumnes
+    // alumnos
     if ($request->tipo_usuario === 'alumno') {
+        $rules['servicio'] = 'required|in:computo,acervo,prestamo';
         $rules['sexo'] = 'required|in:masculino,femenino,otro';
-        $rules['matricula'] = 'nullable|string|max:255'; 
+        $rules['matricula'] = 'nullable|string|max:255';
     }
 
     // maestros
     if ($request->tipo_usuario === 'maestro') {
         $rules['sexo'] = 'required|in:masculino,femenino,otro';
+        $rules['servicio'] = 'required|in:computo,acervo,prestamo';
         $rules['cantidad_hombres'] = 'required|integer';
         $rules['cantidad_mujeres'] = 'required|integer';
     }
+
     $validatedData = $request->validate($rules);
 
+    if ($request->tipo_usuario === 'alumno') {
+        $validatedData['matricula'] = $request->input('matricula');
+    }
 
     Visita::create($validatedData);
 

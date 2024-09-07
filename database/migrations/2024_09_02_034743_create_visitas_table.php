@@ -50,6 +50,7 @@ return new class extends Migration
             $table->integer('cantidad_hombres')->nullable(); 
             $table->integer('cantidad_mujeres')->nullable(); 
             $table->enum('sexo', ['masculino', 'femenino', 'otro'])->nullable(); 
+            $table->enum('servicio', ['computo', 'acervo', 'prestamo']); 
             $table->timestamps();
         });
     }

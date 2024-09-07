@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class visita extends Model
+class Visita extends Model
 {
     protected $fillable = [
         'tipo_usuario',
         'turno',
         'matricula',
+        'servicio',
         'nombre_completo',
         'carrera',
         'grado',

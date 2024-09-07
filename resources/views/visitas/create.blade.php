@@ -79,6 +79,11 @@
 
             <!-- Campos comunes -->
             <div class="form-group">
+                <label for="nombre_completo">Nombre Completo</label>
+                <input type="text" id="nombre_completo" name="nombre_completo" value="{{ old('nombre_completo') }}" required />
+            </div>
+
+            <div class="form-group">
                 <label for="turno">Turno</label>
                 <select id="turno" name="turno" required>
                     <option value="">Seleccione el turno</option>
@@ -86,12 +91,26 @@
                     <option value="vespertino">Vespertino</option>
                 </select>
             </div>
-
             <div class="form-group">
-                <label for="nombre_completo">Nombre Completo</label>
-                <input type="text" id="nombre_completo" name="nombre_completo" value="{{ old('nombre_completo') }}" required />
+                <label for="servicio">Servicio</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="">Seleccione servicio requerido</option>
+                    <option value="computo">Cómputo</option>
+                    <option value="acervo">Acervo</option>
+                    <option value="prestamo">Préstamo</option>
+                </select>
             </div>
 
+            <div class="form-group">
+                <label for="sexo">Sexo</label>
+                <select id="sexo" name="sexo" required>
+                    <option value="">Seleccione su sexo</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            
             <div class="form-group">
                 <label for="carrera">Carrera</label>
                 <select class="form-control" id="carrera" name="carrera" required>
@@ -146,27 +165,23 @@
                 <label for="actividad">Actividad</label>
                 <input type="text" id="actividad" name="actividad" value="{{ old('actividad') }}" required />
             </div>
+            
 
             <!-- Campos específicos de alumnos -->
+            
             <div id="alumnoFields" style="display: none;">
+               
                 <div class="form-group">
                     <label for="matricula">Matrícula</label>
                     <input type="text" id="matricula" name="matricula" value="{{ old('matricula') }}" />
                 </div>
-                <div class="form-group">
-                    <label for="sexo">Sexo</label>
-                    <select id="sexo" name="sexo">
-                        <option value="">Seleccione su sexo</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
-                        <option value="otro">Otro</option>
-                    </select>
-                </div>
+               
             </div>
 
             <!-- Campos específicos de maestros -->
             
             <div id="maestroFields" style="display: none;">
+               
                 <div class="form-group">
                     <label for="cantidad_hombres">Cantidad de Alumnos Hombres</label>
                     <input type="number" id="cantidad_hombres" name="cantidad_hombres" />
@@ -175,16 +190,6 @@
                 <div class="form-group">
                     <label for="cantidad_mujeres">Cantidad de Alumnos Mujeres</label>
                     <input type="number" id="cantidad_mujeres" name="cantidad_mujeres" />
-                </div>
-                
-                <div class="form-group">
-                    <label for="sexo">Sexo</label>
-                    <select id="sexo" name="sexo">
-                        <option value="">Seleccione su sexo</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
-                        <option value="otro">Otro</option>
-                    </select>
                 </div>
 
 
